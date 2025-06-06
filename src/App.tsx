@@ -8,6 +8,7 @@ import snake from './assets/snake.jpg'
 import Taskbar from './Taskbar.tsx';
 import resume from './assets/resume_img.png'
 import folder from './assets/folder.png'
+import wordle from './assets/wordle.png'
 
 import {useState} from 'react';
 
@@ -41,7 +42,10 @@ function App() {
     {
       window.open("https://github.com/carlos-mercado/File-Sorter/")
     }
-    
+    else if (cardID == "Wordle")
+    {
+      window.open("https://github.com/carlos-mercado/Wordle")
+    }
   }
 
   return (
@@ -70,6 +74,12 @@ function App() {
           cardID="Folder" 
           onIconClick={handleCardClick} 
           isSelected={selectedCard === "Folder"}
+        />
+        <Card 
+          icon={wordle} 
+          cardID="Wordle" 
+          onIconClick={handleCardClick} 
+          isSelected={selectedCard === "Wordle"}
         />
         <div className='taskbar'>
           <Taskbar />
