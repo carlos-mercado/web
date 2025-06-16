@@ -90,7 +90,7 @@ function App() {
           icon={snip} 
           cardID="Snip" 
           onIconClick={handleCardClick} 
-          isSelected={selectedCard === "Wordle"}
+          isSelected={selectedCard === "Snip"}
         />
         <div className='taskbar'>
           <Taskbar />

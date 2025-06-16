@@ -5,8 +5,7 @@ function Clock(){
     
     useEffect(()=>{
             setInterval(()=> setTime(new Date()), 1000)
-        }
-    )
+    }, [])
     
     return(
         <>
