@@ -9,6 +9,7 @@ import Taskbar from './Taskbar.tsx';
 import resume from './assets/resume_img.png'
 import folder from './assets/folder.png'
 import wordle from './assets/wordle.png'
+import snip from './assets/snip.png'
 
 import {useState} from 'react';
 
@@ -46,6 +47,10 @@ function App() {
     {
       window.open("https://github.com/carlos-mercado/Wordle")
     }
+    else if (cardID == "Snip")
+    {
+      window.open("https://github.com/carlos-mercado/snip_and_search")
+    }
   }
 
   return (
@@ -78,6 +83,12 @@ function App() {
         <Card 
           icon={wordle} 
           cardID="Wordle" 
+          onIconClick={handleCardClick} 
+          isSelected={selectedCard === "Wordle"}
+        />
+        <Card 
+          icon={snip} 
+          cardID="Snip" 
           onIconClick={handleCardClick} 
           isSelected={selectedCard === "Wordle"}
         />
