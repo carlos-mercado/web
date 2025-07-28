@@ -1,5 +1,8 @@
-//comps
+import {useState} from 'react';
+
+//components
 import Card from './Card.tsx'
+import Weather from './Weather.tsx';
 
 //images
 import bin from './assets/recycle.png'
@@ -8,16 +11,14 @@ import snake from './assets/snake.jpg'
 import Taskbar from './Taskbar.tsx';
 import resume from './assets/resume_img.png'
 import folder from './assets/folder.png'
-import wordle from './assets/wordle.png'
 import snip from './assets/snip.png'
-
-import {useState} from 'react';
-
-
+import weather from './assets/weather.png'
 
 function App() {
+
   const [selectedCard, setSelectedCard] = useState<string | null>(null);
   const [showOverlay, setShowOverlay] = useState(false);
+  const [overlayType, setTypeOverlay] = useState(false);
 
   const handleCardClick = (returnedInfo: [string, string]) => {
     setSelectedCard(returnedInfo[0]);
@@ -28,12 +29,12 @@ function App() {
       handleCardDoubleClick(returnedInfo[0]);
     }
   }
-
   const handleCardDoubleClick = (cardID: string) => {
     if(cardID == "Info")
     {
       console.log("overlay ON");
       setShowOverlay(true);
+      setTypeOverlay(false);
     }
     else if (cardID == "Snake")
     {
@@ -50,6 +51,12 @@ function App() {
     else if (cardID == "Snip")
     {
       window.open("https://github.com/carlos-mercado/snip_and_search")
+    }
+    else if (cardID == "Weather")
+    {
+      console.log("overlay ON");
+      setShowOverlay(true);
+      setTypeOverlay(true);
     }
   }
 
@@ -81,25 +88,36 @@ function App() {
           isSelected={selectedCard === "Folder"}
         />
         <Card 
-          icon={wordle} 
-          cardID="Wordle" 
-          onIconClick={handleCardClick} 
-          isSelected={selectedCard === "Wordle"}
-        />
-        <Card 
           icon={snip} 
           cardID="Snip" 
           onIconClick={handleCardClick} 
           isSelected={selectedCard === "Snip"}
         />
+        <Card 
+          icon={weather} 
+          cardID="Weather" 
+          onIconClick={handleCardClick} 
+          isSelected={selectedCard === "Weather"}
+        />
         <div className='taskbar'>
           <Taskbar />
         </div>
-        {showOverlay && (
-          <div className = "overlay" onClick={() => setShowOverlay(false)}>
-            <img src={resume} alt="Resume" />
-          </div>
-        )}
+
+          {showOverlay && overlayType == false && (
+            <div className = "overlay" onClick={() => setShowOverlay(false)}>
+              <img src={resume} alt="Resume" />
+            </div>
+          )}
+
+          {showOverlay && overlayType == true && (
+            <div className = "overlay" onClick={() => setShowOverlay(false)}>
+              <>
+                <Weather>
+                </Weather>
+              </>
+            </div>
+          )}
+
       </div>
     </>
   );

@@ -7,7 +7,7 @@ body{
   height:100vh;
   width:100vw;
   background-image: url('./assets/greenhills.png');
-  background-size: 100% 100%;
+  background-size: cover;
   overflow: hidden;
 }
 
@@ -73,4 +73,31 @@ body{
   text-align: center;
   justify-content: center;
 
+}
+
+#weather-card{
+    background-color: lightblue;
+    border-radius: 7.5px;
+    text-align: center;
+    justify-content: center;
+    width: 40vh;
+    height: 55vh;
+}
+
+#day{
+    padding: 10%;
+    margin: 0;
+}
+
+#weather{
+
+    margin: 0;
+}
+
+#image{
+  position: relative;
+  padding-top: 20%;
+  padding-bottom: 20%;
+  height: 64px;
+  width: 64px;
 }
