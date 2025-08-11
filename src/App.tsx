@@ -3,9 +3,9 @@ import {useState} from 'react';
 //components
 import Card from './Card.tsx'
 import Weather from './Weather.tsx';
+import Window from './Window.tsx';
 
 //images
-import bin from './assets/recycle.png'
 import info from './assets/info.png'
 import snake from './assets/snake.jpg'
 import Taskbar from './Taskbar.tsx';
@@ -20,23 +20,25 @@ function App() {
   const [showOverlay, setShowOverlay] = useState(false);
   const [overlayType, setTypeOverlay] = useState(false);
 
+  const [resumeOn, setResumeOn] = useState(false);
+  const [weatherOn, setWeatherOn] = useState(false);
+
   const handleCardClick = (returnedInfo: [string, string]) => {
     setSelectedCard(returnedInfo[0]);
     console.log(returnedInfo[0] + ' icon was clicked ' + returnedInfo[1] + ' times.');
 
     if(returnedInfo[1] == '2')
     {
-      handleCardDoubleClick(returnedInfo[0]);
+      if(returnedInfo[0] == "Info")
+        setResumeOn(true);
+      else if(returnedInfo[0] == "Weather")
+        setWeatherOn(true);
+      else
+        handleCardDoubleClick(returnedInfo[0]);
     }
   }
   const handleCardDoubleClick = (cardID: string) => {
-    if(cardID == "Info")
-    {
-      console.log("overlay ON");
-      setShowOverlay(true);
-      setTypeOverlay(false);
-    }
-    else if (cardID == "Snake")
+    if (cardID == "Snake")
     {
       window.open("https://github.com/carlos-mercado/snake-vim/")
     }
@@ -63,12 +65,6 @@ function App() {
   return (
     <>
       <div className='screen'>
-        <Card 
-          icon={bin} 
-          cardID="Recycle Bin" 
-          onIconClick={handleCardClick} 
-          isSelected={selectedCard === "Recycle Bin"}
-        />
         <Card 
           icon={info} 
           cardID="Info" 
@@ -109,14 +105,30 @@ function App() {
             </div>
           )}
 
-          {showOverlay && overlayType == true && (
-            <div className = "overlay" onClick={() => setShowOverlay(false)}>
-              <>
-                <Weather>
-                </Weather>
-              </>
-            </div>
-          )}
+
+        {resumeOn == true && (
+          <Window 
+            contentHeight={787}
+            contentWidth={611}
+            content = {
+              <img src={resume} alt="Resume" />
+            }
+            onClose={() => setResumeOn(false)}
+
+          />
+        )}
+
+        {weatherOn == true && (
+          <Window 
+            contentHeight={"55vh"}
+            contentWidth={"40vh"}
+            content = {
+              <Weather></Weather>
+            }
+            onClose={() => setWeatherOn(false)}
+
+          />
+        )}
 
       </div>
     </>

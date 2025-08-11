@@ -23,6 +23,7 @@ function WeatherCard(props: WeatherInfo)  {
             <h1 id='day'>{dayNames[dayIndex]}</h1>
             <h2 id='temperature'>{props.temp}°</h2>
             <img id='image' src={sunny}></img>
+            <p>Visalia, CA</p>
         </div>
     );
 };
