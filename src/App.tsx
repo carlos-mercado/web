@@ -4,6 +4,7 @@ import {useState} from 'react';
 import Card from './Card.tsx'
 import Weather from './Weather.tsx';
 import Window from './Window.tsx';
+import Toe from './Toe.tsx';
 
 //images
 import info from './assets/info.png'
@@ -13,6 +14,7 @@ import resume from './assets/resume_img.png'
 import folder from './assets/folder.png'
 import snip from './assets/snip.png'
 import weather from './assets/weather.png'
+import toe from './assets/Toe.png'
 
 function App() {
 
@@ -22,6 +24,7 @@ function App() {
 
   const [resumeOn, setResumeOn] = useState(false);
   const [weatherOn, setWeatherOn] = useState(false);
+  const [toeOn, setToeOn] = useState(false);
 
   const handleCardClick = (returnedInfo: [string, string]) => {
     setSelectedCard(returnedInfo[0]);
@@ -33,6 +36,8 @@ function App() {
         setResumeOn(true);
       else if(returnedInfo[0] == "Weather")
         setWeatherOn(true);
+      else if(returnedInfo[0] == "Tic-Tac-Toe")
+        setToeOn(true);
       else
         handleCardDoubleClick(returnedInfo[0]);
     }
@@ -53,12 +58,6 @@ function App() {
     else if (cardID == "Snip")
     {
       window.open("https://github.com/carlos-mercado/snip_and_search")
-    }
-    else if (cardID == "Weather")
-    {
-      console.log("overlay ON");
-      setShowOverlay(true);
-      setTypeOverlay(true);
     }
   }
 
@@ -95,6 +94,12 @@ function App() {
           onIconClick={handleCardClick} 
           isSelected={selectedCard === "Weather"}
         />
+        <Card 
+          icon={toe} 
+          cardID="Tic-Tac-Toe" 
+          onIconClick={handleCardClick} 
+          isSelected={selectedCard === "Tic-Tac-Toe"}
+        />
         <div className='taskbar'>
           <Taskbar />
         </div>
@@ -127,6 +132,17 @@ function App() {
             }
             onClose={() => setWeatherOn(false)}
 
+          />
+        )}
+
+        {toeOn == true && (
+          <Window
+            contentHeight={300}
+            contentWidth={300}
+            content = {
+              <Toe></Toe>
+            }
+            onClose={() => setToeOn(false)}
           />
         )}
 

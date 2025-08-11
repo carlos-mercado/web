@@ -22,6 +22,7 @@ function Window({contentHeight, contentWidth, content, onClose}: WindowProps)
         borderLeft: "inset",
         borderRight: "inset",
         borderBottom: "inset",
+        paddingTop: "20px"
     }
 
 
