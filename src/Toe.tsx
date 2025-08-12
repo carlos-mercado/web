@@ -97,6 +97,7 @@ function gameLogic([row, col]: [number, number], gridToCheck = grid) {
                 ref={canvasRef}
                 style={{ border: '1px solid #333' }}
                 onClick={handleCanvasClick}
+
             />
             {winner && <p>{winner} wins!</p>}
         </>
