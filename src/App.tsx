@@ -19,9 +19,6 @@ import toe from './assets/Toe.png'
 function App() {
 
   const [selectedCard, setSelectedCard] = useState<string | null>(null);
-  const [showOverlay, setShowOverlay] = useState(false);
-  const [overlayType, setTypeOverlay] = useState(false);
-
   const [resumeOn, setResumeOn] = useState(false);
   const [weatherOn, setWeatherOn] = useState(false);
   const [toeOn, setToeOn] = useState(false);
@@ -103,13 +100,6 @@ function App() {
         <div className='taskbar'>
           <Taskbar />
         </div>
-
-          {showOverlay && overlayType == false && (
-            <div className = "overlay" onClick={() => setShowOverlay(false)}>
-              <img src={resume} alt="Resume" />
-            </div>
-          )}
-
 
         {resumeOn == true && (
           <Window 
