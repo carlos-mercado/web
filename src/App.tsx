@@ -14,7 +14,7 @@ import resume from './assets/resume_img.png'
 import folder from './assets/folder.png'
 import snip from './assets/snip.png'
 import weather from './assets/weather.png'
-import toe from './assets/toe.png'
+import toe from './assets/Toe.png'
 import dumbell from './assets/dumbbell2.png'
 
 function App() {
