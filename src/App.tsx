@@ -14,7 +14,8 @@ import resume from './assets/resume_img.png'
 import folder from './assets/folder.png'
 import snip from './assets/snip.png'
 import weather from './assets/weather.png'
-import toe from './assets/Toe.png'
+import toe from './assets/toe.png'
+import dumbell from './assets/dumbbell2.png'
 
 function App() {
 
@@ -56,6 +57,10 @@ function App() {
     {
       window.open("https://github.com/carlos-mercado/snip_and_search")
     }
+    else if (cardID == "METRON")
+    {
+      window.open("https://carlos-mercado.github.io/METRON/")
+    }
   }
 
   return (
@@ -96,6 +101,12 @@ function App() {
           cardID="Tic-Tac-Toe" 
           onIconClick={handleCardClick} 
           isSelected={selectedCard === "Tic-Tac-Toe"}
+        />
+        <Card 
+          icon={dumbell} 
+          cardID="METRON" 
+          onIconClick={handleCardClick} 
+          isSelected={selectedCard === "METRON"}
         />
         <div className='taskbar'>
           <Taskbar />
