@@ -16,6 +16,7 @@ import snip from './assets/snip.png'
 import weather from './assets/weather.png'
 import toe from './assets/Toe.png'
 import dumbell from './assets/dumbbell2.png'
+import game from './assets/game.png'
 
 function App() {
 
@@ -73,7 +74,7 @@ function App() {
           isSelected={selectedCard === "Info"}
         />
         <Card 
-          icon={snake} 
+          icon={folder} 
           cardID="Snake" 
           onIconClick={handleCardClick} 
           isSelected={selectedCard === "Snake"}
@@ -85,10 +86,16 @@ function App() {
           isSelected={selectedCard === "Folder"}
         />
         <Card 
-          icon={snip} 
+          icon={folder} 
           cardID="Snip" 
           onIconClick={handleCardClick} 
           isSelected={selectedCard === "Snip"}
+        />
+        <Card 
+          icon={folder} 
+          cardID="METRON" 
+          onIconClick={handleCardClick} 
+          isSelected={selectedCard === "METRON"}
         />
         <Card 
           icon={weather} 
@@ -97,16 +104,10 @@ function App() {
           isSelected={selectedCard === "Weather"}
         />
         <Card 
-          icon={toe} 
+          icon={game} 
           cardID="Tic-Tac-Toe" 
           onIconClick={handleCardClick} 
           isSelected={selectedCard === "Tic-Tac-Toe"}
-        />
-        <Card 
-          icon={dumbell} 
-          cardID="METRON" 
-          onIconClick={handleCardClick} 
-          isSelected={selectedCard === "METRON"}
         />
         <div className='taskbar'>
           <Taskbar />
