@@ -22,7 +22,8 @@ function Window({contentHeight, contentWidth, content, onClose}: WindowProps)
         borderLeft: "inset",
         borderRight: "inset",
         borderBottom: "inset",
-        paddingTop: "20px"
+        paddingTop: "20px",
+        marginTop: "13px",
     }
 
 
@@ -64,8 +65,11 @@ function Window({contentHeight, contentWidth, content, onClose}: WindowProps)
         borderTop: "inset",
         borderLeft: "inset",
         borderRight: "inset",
-        borderBottom: "inset"
+        borderBottom: "inset",
+        marginBottom: "8px",
     };
+
+
 
     return (
         <>

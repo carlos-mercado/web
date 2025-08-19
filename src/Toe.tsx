@@ -30,7 +30,7 @@ function Toe() {
         ctx.stroke();
     }, []);
 
-const handleCanvasClick = (e: React.MouseEvent<HTMLCanvasElement>) => {
+    const handleCanvasClick = (e: React.MouseEvent<HTMLCanvasElement>) => {
         const rect = canvasRef.current!.getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
@@ -72,24 +72,24 @@ const handleCanvasClick = (e: React.MouseEvent<HTMLCanvasElement>) => {
         });
     };
 
-// Update gameLogic to return true if someone wins
-function gameLogic([row, col]: [number, number], gridToCheck = grid) {
-    const player = gridToCheck[row][col];
-    if (!player) return false;
+    // Update gameLogic to return true if someone wins
+    function gameLogic([row, col]: [number, number], gridToCheck = grid) {
+        const player = gridToCheck[row][col];
+        if (!player) return false;
 
-    // Check all win conditions
-    const horizontalWin = gridToCheck[row].every(cell => cell === player);
-    const verticalWin = gridToCheck.every(r => r[col] === player);
-    const mainDiagonalWin = row === col && gridToCheck.every((r, i) => r[i] === player);
-    const antiDiagonalWin = row + col === 2 && gridToCheck.every((r, i) => r[2 - i] === player);
+        // Check all win conditions
+        const horizontalWin = gridToCheck[row].every(cell => cell === player);
+        const verticalWin = gridToCheck.every(r => r[col] === player);
+        const mainDiagonalWin = row === col && gridToCheck.every((r, i) => r[i] === player);
+        const antiDiagonalWin = row + col === 2 && gridToCheck.every((r, i) => r[2 - i] === player);
 
-    // If any win condition is met, show alert and return true
-    if (horizontalWin || verticalWin || mainDiagonalWin || antiDiagonalWin) {
-        setWinner(player)
+        // If any win condition is met, show alert and return true
+        if (horizontalWin || verticalWin || mainDiagonalWin || antiDiagonalWin) {
+            setWinner(player)
+        }
+
+
     }
-
-
-}
 
     return (
         <>

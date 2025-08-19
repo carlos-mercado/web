@@ -5,17 +5,17 @@ import Card from './Card.tsx'
 import Weather from './Weather.tsx';
 import Window from './Window.tsx';
 import Toe from './Toe.tsx';
+import Snake from './Snake.tsx';
 
 //images
 import info from './assets/info.png'
-import snake from './assets/snake.jpg'
 import Taskbar from './Taskbar.tsx';
 import resume from './assets/resume_img.png'
 import folder from './assets/folder.png'
-import snip from './assets/snip.png'
+//import snip from './assets/snip.png'
 import weather from './assets/weather.png'
-import toe from './assets/Toe.png'
-import dumbell from './assets/dumbbell2.png'
+//import toe from './assets/Toe.png'
+//import dumbell from './assets/dumbbell2.png'
 import game from './assets/game.png'
 
 function App() {
@@ -24,6 +24,7 @@ function App() {
   const [resumeOn, setResumeOn] = useState(false);
   const [weatherOn, setWeatherOn] = useState(false);
   const [toeOn, setToeOn] = useState(false);
+  const [snakeOn, setSnakeOn] = useState(false);
 
   const handleCardClick = (returnedInfo: [string, string]) => {
     setSelectedCard(returnedInfo[0]);
@@ -37,16 +38,14 @@ function App() {
         setWeatherOn(true);
       else if(returnedInfo[0] == "Tic-Tac-Toe")
         setToeOn(true);
+      else if(returnedInfo[0] == "Snake")
+        setSnakeOn(true);
       else
         handleCardDoubleClick(returnedInfo[0]);
     }
   }
   const handleCardDoubleClick = (cardID: string) => {
-    if (cardID == "Snake")
-    {
-      window.open("https://github.com/carlos-mercado/snake-vim/")
-    }
-    else if (cardID == "Folder")
+    if (cardID == "Folder")
     {
       window.open("https://github.com/carlos-mercado/File-Sorter/")
     }
@@ -72,12 +71,6 @@ function App() {
           cardID="Info" 
           onIconClick={handleCardClick} 
           isSelected={selectedCard === "Info"}
-        />
-        <Card 
-          icon={folder} 
-          cardID="Snake" 
-          onIconClick={handleCardClick} 
-          isSelected={selectedCard === "Snake"}
         />
         <Card 
           icon={folder} 
@@ -108,6 +101,12 @@ function App() {
           cardID="Tic-Tac-Toe" 
           onIconClick={handleCardClick} 
           isSelected={selectedCard === "Tic-Tac-Toe"}
+        />
+        <Card 
+          icon={game} 
+          cardID="Snake" 
+          onIconClick={handleCardClick} 
+          isSelected={selectedCard === "Snake"}
         />
         <div className='taskbar'>
           <Taskbar />
@@ -147,6 +146,19 @@ function App() {
             onClose={() => setToeOn(false)}
           />
         )}
+
+        {snakeOn == true && (
+          <Window
+            contentHeight={500}
+            contentWidth={500}
+            content = 
+            {
+              <Snake></Snake>
+            }
+            onClose={() => setSnakeOn(false)}
+          />
+        )}
+
 
       </div>
     </>
