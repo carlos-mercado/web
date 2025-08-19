@@ -23,7 +23,7 @@ function Window({contentHeight, contentWidth, content, onClose}: WindowProps)
         borderRight: "inset",
         borderBottom: "inset",
         paddingTop: "20px",
-        marginTop: "13px",
+        marginTop: "12px",
     }
 
 
