@@ -54,8 +54,8 @@ body{
   text-align: center;
   max-width: 250px;
   display: inline-block;
-  height: 120px;
-  width: 120px;
+  height: 90px;
+  width: 90px;
   border: 2px solid transparent;
   border-style: dashed;
 }
@@ -67,9 +67,13 @@ body{
 
 }
 
+.card p {
+  font-size: 12px;
+}
+
 .card .card-image{
-  height: 80px;
-  width: 80px;
+  height: 60px;
+  width: 60px;
 }
 
 .overlay {
