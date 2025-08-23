@@ -3,13 +3,14 @@ import Draggable from "react-draggable";
 import React from 'react'
 
 interface WindowProps {
+    windowName: string;
     contentHeight: number | string;
     contentWidth: number | string;
     content: any;
     onClose?: () => void;
 }
 
-function Window({contentHeight, contentWidth, content, onClose}: WindowProps)
+function Window({windowName, contentHeight, contentWidth, content, onClose}: WindowProps)
 {
 
 
@@ -56,7 +57,7 @@ function Window({contentHeight, contentWidth, content, onClose}: WindowProps)
         backgroundColor: "#010080",
         display: "flex",
         alignItems: "center",
-        justifyContent: "flex-end",
+        justifyContent: "space-between",
         position: "absolute",
         top: 0,
         left: 0,
@@ -69,6 +70,12 @@ function Window({contentHeight, contentWidth, content, onClose}: WindowProps)
         marginBottom: "8px",
     };
 
+    const tabTextStyles: React.CSSProperties = {
+        textAlign: "left",
+        color: "white",
+        paddingLeft:"5px"
+    }
+
 
 
     return (
@@ -76,6 +83,9 @@ function Window({contentHeight, contentWidth, content, onClose}: WindowProps)
             <Draggable>
                 <div>
                     <div className="windowControls" style={windowControlsStyles}>
+                        <p style={tabTextStyles}>
+                            {windowName}
+                        </p>
                         <button 
                             style={buttonStyles}
                             onClick={onClose}

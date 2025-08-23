@@ -98,6 +98,7 @@ body{
 
 }
 
+
 #weather-card{
     background-color: lightblue;
     text-align: center;
@@ -122,4 +123,9 @@ body{
   padding-bottom: 20%;
   height: 64px;
   width: 64px;
+}
+
+.resumeImg {
+  height: 720px;
+  width: 570px;
 }

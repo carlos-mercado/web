@@ -114,10 +114,11 @@ function App() {
 
         {resumeOn == true && (
           <Window 
-            contentHeight={787}
-            contentWidth={611}
+            windowName='Résumé'
+            contentHeight={720}
+            contentWidth={570}
             content = {
-              <img src={resume} alt="Resume" />
+              <img className="resumeImg" src={resume} alt="Resume" />
             }
             onClose={() => setResumeOn(false)}
 
@@ -126,6 +127,7 @@ function App() {
 
         {weatherOn == true && (
           <Window 
+            windowName='Weather'
             contentHeight={"55vh"}
             contentWidth={"40vh"}
             content = {
@@ -138,6 +140,7 @@ function App() {
 
         {toeOn == true && (
           <Window
+            windowName='Tic-Tac-Toe'
             contentHeight={300}
             contentWidth={300}
             content = {
@@ -149,6 +152,7 @@ function App() {
 
         {snakeOn == true && (
           <Window
+            windowName='Snake'
             contentHeight={500}
             contentWidth={500}
             content = 
