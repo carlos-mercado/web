@@ -12,11 +12,12 @@ import info from './assets/info.png'
 import Taskbar from './Taskbar.tsx';
 import resume from './assets/resume_img.png'
 import folder from './assets/folder.png'
-//import snip from './assets/snip.png'
 import weather from './assets/weather.png'
+import game from './assets/game.png'
+import web from './assets/web.png'
+//import snip from './assets/snip.png'
 //import toe from './assets/Toe.png'
 //import dumbell from './assets/dumbbell2.png'
-import game from './assets/game.png'
 
 function App() {
 
@@ -85,7 +86,7 @@ function App() {
           isSelected={selectedCard === "Snip"}
         />
         <Card 
-          icon={folder} 
+          icon={web} 
           cardID="METRON" 
           onIconClick={handleCardClick} 
           isSelected={selectedCard === "METRON"}
