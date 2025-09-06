@@ -60,7 +60,7 @@ function App() {
     }
     else if (cardID == "METRON")
     {
-      window.open("https://carlos-mercado.github.io/METRON/")
+      window.open("https://metron-alpha.vercel.app/")
     }
   }
 
