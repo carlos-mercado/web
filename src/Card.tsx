@@ -9,10 +9,10 @@ interface  IconInfo{
 
 
 function Card(props:IconInfo){
-    const isMobile = /Mobi|Android/i.test(window.navigator.userAgent);
+    //const isMobile = /Mobi|Android/i.test(window.navigator.userAgent);
 
     const handleIconClick = (event: {detail: any;}) => {
-        isMobile ? event.detail = 2 : event.detail = event.detail;
+        //isMobile ? event.detail = 2 : event.detail = event.detail;
 
         props.onIconClick([props.cardID, event.detail])
     }
@@ -23,7 +23,7 @@ function Card(props:IconInfo){
     }
 
     return(
-        <Draggable cancel={isMobile ? ".card" : ""}>
+        <Draggable>
             <div className="card" onClick={handleIconClick} style={cardClickedStyle}>
                 <img draggable="false" src={props.icon} alt="icon-picture" className="card-image"></img>
                 <p>{props.cardID}</p>
