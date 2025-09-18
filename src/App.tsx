@@ -116,8 +116,8 @@ function App() {
         {resumeOn == true && (
           <Window 
             windowName='Résumé'
-            contentHeight={720}
-            contentWidth={570}
+            contentHeight={839}
+            contentWidth={593}
             content = {
               <img className="resumeImg" src={resume} alt="Resume" />
             }

@@ -126,6 +126,6 @@ body{
 }
 
 .resumeImg {
-  height: 720px;
-  width: 570px;
+  width: 100%;
+  height: auto;
 }
