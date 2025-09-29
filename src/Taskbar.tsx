@@ -1,9 +1,14 @@
 import Clock from './Clock.tsx'
+import windowsIcon from './assets/windows.png'
 
 function Taskbar(){
     return(
         <>
-            <Clock></Clock>
+        <div className='startButton'>
+            <img src={windowsIcon}></img>
+            <span className='carlos'>Carlos Mercado</span>
+        </div>
+        <Clock></Clock>
         </>
     )
 }

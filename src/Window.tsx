@@ -1,6 +1,6 @@
 import Draggable from "react-draggable";
-
 import React from 'react'
+import closeIcon from './assets/close-icon.png';
 
 interface WindowProps {
     windowName: string;
@@ -31,13 +31,13 @@ function Window({windowName, contentHeight, contentWidth, content, onClose}: Win
     const buttonStyles: React.CSSProperties = {
         height: "22px",
         width: "22px",
-        backgroundColor: "#e0e0e0", // classic gray
+        backgroundColor: "#c6c6c6", // classic gray
         border: "2px solid #fff",
         borderTopColor: "#fff",
         borderLeftColor: "#fff",
-        borderBottomColor: "#808080",
-        borderRightColor: "#808080",
-        boxShadow: "1px 1px 0 #808080, inset 1px 1px 0 #fff",
+        borderBottomColor: "#3b3b3bff",
+        borderRightColor: "#3b3b3bff",
+        boxShadow: "1px 1px 0 #3b3b3bff, inset 1px 1px 0 #fff",
         color: "black",
         fontWeight: "bold",
         fontFamily: "Tahoma, Geneva, sans-serif",
@@ -73,7 +73,8 @@ function Window({windowName, contentHeight, contentWidth, content, onClose}: Win
     const tabTextStyles: React.CSSProperties = {
         textAlign: "left",
         color: "white",
-        paddingLeft:"5px"
+        paddingLeft:"5px",
+        fontSize: "8px",
     }
 
 
@@ -90,7 +91,7 @@ function Window({windowName, contentHeight, contentWidth, content, onClose}: Win
                             style={buttonStyles}
                             onClick={onClose}
                         >
-                            X
+                            <img src={closeIcon}></img>
                         </button>
                     </div>
                     <div className="windowContent" style={mainStyles}>
