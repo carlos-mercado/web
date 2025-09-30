@@ -116,8 +116,8 @@ function App() {
         {resumeOn == true && (
           <Window 
             windowName='Résumé'
-            contentHeight={839}
-            contentWidth={593}
+            contentHeight={707.609}
+            contentWidth={500.141}
             content = {
               <img className="resumeImg" src={resume} alt="Resume" />
             }
@@ -129,8 +129,8 @@ function App() {
         {weatherOn == true && (
           <Window 
             windowName='Weather'
-            contentHeight={"55vh"}
-            contentWidth={"40vh"}
+            contentHeight={"250px"}
+            contentWidth={"600px"}
             content = {
               <Weather></Weather>
             }

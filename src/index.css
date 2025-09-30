@@ -139,12 +139,52 @@ body {
 
 
 #weather-card{
-    background-color: lightblue;
-    text-align: center;
-    justify-content: center;
-    width: 40vh;
-    height: 55vh;
+  background-color: #c2c2c2;
+  width: 600px;
+  height: 250px;
+  color: black;
+  text-align: center;
+  display: flex;
+  overflow: hidden;
 }
+
+#weather-card .left{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    text-align: center;
+    justify-content: center; 
+    height: 100%;
+}
+
+#weather-card .right
+{
+    width: 50%;
+    margin: auto auto;
+}
+
+#weather-card h2
+{
+    padding: 0;
+}
+#weather-card h1
+{
+    font-size: 32pt;
+    flex-grow: 1;
+}
+
+
+#weather-card img
+{
+    height: 150px;
+    width: 150px;
+    margin-left: auto;
+    text-align: center;
+}
+
+
+
+
 
 #day{
     padding: 10%;
@@ -152,8 +192,7 @@ body {
 }
 
 #weather{
-
-    margin: 0;
+  margin: 0;
 }
 
 #image{
