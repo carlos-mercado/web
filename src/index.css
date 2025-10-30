@@ -9,7 +9,6 @@ html, body, #root{
 
 }
 
-
 body {
   display: flex;
   margin: 0 0;
@@ -181,8 +180,6 @@ body {
     margin-left: auto;
     text-align: center;
 }
-
-
 
 
 

@@ -62,6 +62,10 @@ function App() {
     {
       window.open("https://metron-alpha.vercel.app/")
     }
+    else if (cardID == "Server")
+    {
+      window.open("https://github.com/carlos-mercado/CPP-Server")
+    }
   }
 
   return (
@@ -84,6 +88,12 @@ function App() {
           cardID="Snip" 
           onIconClick={handleCardClick} 
           isSelected={selectedCard === "Snip"}
+        />
+        <Card 
+          icon={folder} 
+          cardID="Server" 
+          onIconClick={handleCardClick} 
+          isSelected={selectedCard === "Server"}
         />
         <Card 
           icon={web} 
