@@ -7,24 +7,29 @@ interface WindowProps {
     contentHeight: number | string;
     contentWidth: number | string;
     content: any;
+    contentZ: number;
     onClose?: () => void;
 }
 
-function Window({windowName, contentHeight, contentWidth, content, onClose}: WindowProps)
+function Window({windowName, contentHeight, contentWidth, content, contentZ, onClose}: WindowProps)
 {
 
+    function finalHeight() 
+    {
+        let str : string = (parseInt(contentHeight)+ 31).toString() + "px";
+        console.log(str);
+        return str;
+    }
 
     const mainStyles: React.CSSProperties = {
-        height: contentHeight,
-        width: contentWidth,
-        backgroundColor: "rgba(66, 135, 255, 0.5)",
-        display: "block",
+        width: "100%",
+        height: "100%",
+        display: "block", 
         position: 'absolute',
-        borderLeft: "inset",
-        borderRight: "inset",
-        borderBottom: "inset",
-        paddingTop: "20px",
-        marginTop: "12px",
+        backgroundColor: "#c6c6c6", // classic gray
+        overflow: "hidden",
+        marginTop: "31px"
+
     }
 
 
@@ -52,9 +57,8 @@ function Window({windowName, contentHeight, contentWidth, content, onClose}: Win
     }
 
     const windowControlsStyles: React.CSSProperties = {
-        height: 25,
-        width: mainStyles.width as number,
-        backgroundColor: "#010080",
+        width: "100%",
+        backgroundColor: "#000080",
         display: "flex",
         alignItems: "center",
         justifyContent: "space-between",
@@ -62,12 +66,6 @@ function Window({windowName, contentHeight, contentWidth, content, onClose}: Win
         top: 0,
         left: 0,
         zIndex: 2,
-        boxShadow: "0 1px 0 #fff",
-        borderTop: "inset",
-        borderLeft: "inset",
-        borderRight: "inset",
-        borderBottom: "inset",
-        marginBottom: "8px",
     };
 
     const tabTextStyles: React.CSSProperties = {
@@ -78,15 +76,27 @@ function Window({windowName, contentHeight, contentWidth, content, onClose}: Win
     }
 
 
+    const win: React.CSSProperties = {
+        height: finalHeight(),
+        width: contentWidth,
+        zIndex: contentZ,
+        position: 'absolute',
+        overflow: 'hidden',
+        borderLeft: "3px solid #c6c6c6",
+        borderRight: "3px solid #ababab",
+        borderBottom: "3px solid #c6c6c6",
+        borderTop: "3px solid #ababab",
+
+
+    }
+
 
     return (
         <>
             <Draggable>
-                <div>
+                <div style={win}>
                     <div className="windowControls" style={windowControlsStyles}>
-                        <p style={tabTextStyles}>
-                            {windowName}
-                        </p>
+                        <p style={tabTextStyles}> {windowName}</p> 
                         <button 
                             style={buttonStyles}
                             onClick={onClose}

@@ -29,7 +29,6 @@ function App() {
   const [toeOn, setToeOn] = useState(false);
   const [snakeOn, setSnakeOn] = useState(false);
   const [donutOn, setDonutOn] = useState(false);
-  const [zIndex, set_zIndex] = useState(1);
 
   const handleCardClick = (returnedInfo: [string, string]) => {
     setSelectedCard(returnedInfo[0]);
@@ -37,7 +36,6 @@ function App() {
 
     if(returnedInfo[1] == '2')
     {
-      set_zIndex(zIndex + 1);
       if(returnedInfo[0] == "Info")
         setResumeOn(true);
       else if(returnedInfo[0] == "Weather")
@@ -106,7 +104,10 @@ function App() {
         <Card 
           icon={game} 
           cardID="Tic-Tac-Toe" 
-          onIconClick={handleCardClick} isSelected={selectedCard === "Tic-Tac-Toe"} /> <Card 
+          onIconClick={handleCardClick} 
+          isSelected={selectedCard === "Tic-Tac-Toe"}
+        />
+        <Card 
           icon={game} 
           cardID="Snake" 
           onIconClick={handleCardClick} 
@@ -125,12 +126,11 @@ function App() {
         {resumeOn == true && (
           <Window 
             windowName='Résumé'
-            contentHeight="645px"
-            contentWidth="456px"
+            contentHeight={"707.609px"}
+            contentWidth={"500.141px"}
             content = {
               <img className="resumeImg" src={resume} alt="Resume" />
             }
-            contentZ = {100}
             onClose={() => setResumeOn(false)}
 
           />
@@ -139,12 +139,11 @@ function App() {
         {weatherOn == true && (
           <Window 
             windowName='Weather'
-            contentHeight="250px"
-            contentWidth="600px"
+            contentHeight={"250px"}
+            contentWidth={"600px"}
             content = {
               <Weather></Weather>
             }
-            contentZ = {1}
             onClose={() => setWeatherOn(false)}
 
           />
@@ -153,13 +152,11 @@ function App() {
         {toeOn == true && (
           <Window
             windowName='Tic-Tac-Toe'
-            contentHeight="300px"
-            contentWidth="300px"
-            content = 
-            {
+            contentHeight={"300px"}
+            contentWidth={"300px"}
+            content = {
               <Toe></Toe>
             }
-            contentZ = {2}
             onClose={() => setToeOn(false)}
           />
         )}
@@ -167,13 +164,9 @@ function App() {
         {snakeOn == true && (
           <Window
             windowName='Snake'
-            contentHeight="500px"
-            contentWidth="500px" 
-            content = 
-            { 
-                <Snake></Snake>
+            contentHeight={"500px"}
+            contentWidth={"500px"} content = { <Snake></Snake>
             }
-            contentZ = {3}
             onClose={() => setSnakeOn(false)}
           />
         )}
@@ -181,13 +174,12 @@ function App() {
         {donutOn == true && (
           <Window
             windowName='Donut'
-            contentHeight='500px'
-            contentWidth='500px'
+            contentHeight={"500px"}
+            contentWidth={"500px"}
             content =
             {
                 <Donut></Donut>
             }
-            contentZ = {4}
             onClose={() => setDonutOn(false)}
           />
         )}
