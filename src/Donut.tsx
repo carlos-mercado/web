@@ -2,7 +2,7 @@ import  { useEffect, useRef, useState } from "react";
 
 function Donut() {
     const [frame, setFrame] = useState("");
-    const intervalRef = useRef(null);
+    const intervalRef = useRef<number>();
 
     useEffect(() => {
         let A = 0, B = 0;
