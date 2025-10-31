@@ -1,8 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
+import  { useEffect, useRef, useState } from "react";
 
 function Donut() {
     const [frame, setFrame] = useState("");
-    const intervalRef = useRef<NodeJS.Timeout | null>(null);
+    const intervalRef = useRef(null);
 
     useEffect(() => {
         let A = 0, B = 0;

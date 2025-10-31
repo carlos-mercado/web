@@ -4,8 +4,8 @@ import closeIcon from './assets/close-icon.png';
 
 interface WindowProps {
     windowName: string;
-    contentHeight: number | string;
-    contentWidth: number | string;
+    contentHeight: string;
+    contentWidth: string;
     content: any;
     contentZ: number;
     onClose?: () => void;
