@@ -69,6 +69,10 @@ function App() {
     {
       window.open("https://metron-alpha.vercel.app/")
     }
+    else if (cardID == "Server")
+    {
+      window.open("https://github.com/carlos-mercado/Broadcast-Server")
+    }
   }
 
   return (
@@ -78,6 +82,12 @@ function App() {
           cardID="Info" 
           onIconClick={handleCardClick} 
           isSelected={selectedCard === "Info"}
+        />
+        <Card 
+          icon={folder} 
+          cardID="Server" 
+          onIconClick={handleCardClick} 
+          isSelected={selectedCard === "Server"}
         />
         <Card 
           icon={folder} 
