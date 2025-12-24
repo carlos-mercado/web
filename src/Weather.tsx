@@ -3,6 +3,7 @@ import axios from 'axios';
 import WeatherCard from './WeatherCard.tsx'
 
 const Weather = () => {
+
     interface WeatherData {
         main: {
             temp: number;
@@ -13,6 +14,7 @@ const Weather = () => {
             [key: string]: any; // For other properties in weather, if needed
         }[];
     }
+
     const [weatherData, setWeatherData] = useState<WeatherData | null>(null);
     const def = 'visalia';
 

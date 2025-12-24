@@ -8,6 +8,7 @@ import Toe from './Toe.tsx';
 import Taskbar from './Taskbar.tsx';
 import Snake from './Snake.tsx';
 import Donut from "./Donut.tsx";
+import FileExplorer from "./FileExplorer.tsx"
 
 //images
 import info from './assets/info.png'
@@ -29,6 +30,8 @@ function App() {
   const [toeOn, setToeOn] = useState(false);
   const [snakeOn, setSnakeOn] = useState(false);
   const [donutOn, setDonutOn] = useState(false);
+  const [folderOn, setFolderOn] = useState(false);
+
   const [zIndex, set_zIndex] = useState(1);
 
   const handleCardClick = (returnedInfo: [string, string]) => {
@@ -48,6 +51,8 @@ function App() {
         setSnakeOn(true);
       else if(returnedInfo[0] == "Donut")
         setDonutOn(true);
+      else if(returnedInfo[0] == "Projects")
+        setFolderOn(true);
       else
         handleCardDoubleClick(returnedInfo[0]);
     }
@@ -85,21 +90,9 @@ function App() {
         />
         <Card 
           icon={folder} 
-          cardID="Server" 
+          cardID="Projects" 
           onIconClick={handleCardClick} 
-          isSelected={selectedCard === "Server"}
-        />
-        <Card 
-          icon={folder} 
-          cardID="Folder" 
-          onIconClick={handleCardClick} 
-          isSelected={selectedCard === "Folder"}
-        />
-        <Card 
-          icon={folder} 
-          cardID="Snip" 
-          onIconClick={handleCardClick} 
-          isSelected={selectedCard === "Snip"}
+          isSelected={selectedCard === "Projects"}
         />
         <Card 
           icon={web} 
@@ -149,7 +142,7 @@ function App() {
         {weatherOn == true && (
           <Window 
             windowName='Weather'
-            contentHeight="250px"
+            contentHeight="281px"
             contentWidth="600px"
             content = {
               <Weather></Weather>
@@ -163,7 +156,7 @@ function App() {
         {toeOn == true && (
           <Window
             windowName='Tic-Tac-Toe'
-            contentHeight="300px"
+            contentHeight="331px"
             contentWidth="300px"
             content = 
             {
@@ -177,7 +170,7 @@ function App() {
         {snakeOn == true && (
           <Window
             windowName='Snake'
-            contentHeight="500px"
+            contentHeight="531px"
             contentWidth="500px" 
             content = 
             { 
@@ -200,6 +193,11 @@ function App() {
             contentZ = {4}
             onClose={() => setDonutOn(false)}
           />
+        )}
+
+        {folderOn == true && (
+            <FileExplorer closeFunc={() => setFolderOn(false)}>
+            </FileExplorer>
         )}
 
 

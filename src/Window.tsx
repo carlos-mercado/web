@@ -16,9 +16,12 @@ function Window({windowName, contentHeight, contentWidth, content, contentZ, onC
 
     function finalHeight() 
     {
-        let str : string = (parseInt(contentHeight)+ 31).toString() + "px";
-        console.log(str);
-        return str;
+        // If contentHeight already includes a unit, return as-is
+        if (contentHeight.endsWith("vh") || contentHeight.endsWith("px")) {
+            return contentHeight;
+        }
+        // Otherwise, assume pixels
+        return `${contentHeight}px`;
     }
 
     const mainStyles: React.CSSProperties = {
@@ -86,8 +89,6 @@ function Window({windowName, contentHeight, contentWidth, content, contentZ, onC
         borderRight: "3px solid #ababab",
         borderBottom: "3px solid #c6c6c6",
         borderTop: "3px solid #ababab",
-
-
     }
 
 
