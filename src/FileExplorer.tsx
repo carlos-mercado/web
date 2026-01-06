@@ -31,6 +31,10 @@ const handleCardClick = (returnedInfo: [string, string]) =>
         {
             window.open("https://github.com/carlos-mercado/Broadcast-Server")
         }
+        else if (cardID == "Multiuser Chat")
+        {
+            window.open("https://github.com/carlos-mercado/network-concepts-notes/tree/main/projects/39_multiuser_chat")
+        }
     }
 }
 
@@ -63,6 +67,12 @@ function FileExplorer({closeFunc} : Props){
                     <Card 
                         icon={folder} 
                         cardID="Snip" 
+                        onIconClick={handleCardClick}
+                        isSelected={!true}
+                    />
+                    <Card 
+                        icon={folder} 
+                        cardID="Multiuser Chat" 
                         onIconClick={handleCardClick}
                         isSelected={!true}
                     />

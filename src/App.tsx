@@ -23,7 +23,6 @@ import paint from './assets/paint.png'
 //import dumbell from './assets/dumbbell2.png'
 
 function App() {
-
   const [selectedCard, setSelectedCard] = useState<string | null>(null);
   const [resumeOn, setResumeOn] = useState(false);
   const [weatherOn, setWeatherOn] = useState(false);
