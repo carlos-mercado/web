@@ -37,9 +37,17 @@ function App() {
     setSelectedCard(returnedInfo[0]);
     console.log(returnedInfo[0] + ' icon was clicked ' + returnedInfo[1] + ' times.');
 
-    if(returnedInfo[1] == '2')
+    // Detect if the device is mobile/touch-based
+    const isMobile = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    // On mobile, single click should open apps (treat as double click)
+    // On desktop, follow the returned '2' logic (double click)
+
+    const clicks = String(returnedInfo[1]);
+
+    if((isMobile && clicks === '1') || clicks === '2')
     {
       set_zIndex(zIndex + 1);
+
       if(returnedInfo[0] == "Info")
         setResumeOn(true);
       else if(returnedInfo[0] == "Weather")
@@ -57,26 +65,16 @@ function App() {
     }
   }
   const handleCardDoubleClick = (cardID: string) => {
-    if (cardID == "Folder")
+
+    if (cardID == "METRON")
     {
-      window.open("https://github.com/carlos-mercado/File-Sorter/")
-    }
-    else if (cardID == "Wordle")
-    {
-      window.open("https://github.com/carlos-mercado/Wordle")
+      window.open("https://metron-alpha.vercel.app/")
     }
     else if (cardID == "Snip")
     {
       window.open("https://github.com/carlos-mercado/snip_and_search")
     }
-    else if (cardID == "METRON")
-    {
-      window.open("https://metron-alpha.vercel.app/")
-    }
-    else if (cardID == "Server")
-    {
-      window.open("https://github.com/carlos-mercado/Broadcast-Server")
-    }
+
   }
 
   return (
@@ -127,13 +125,18 @@ function App() {
         {resumeOn == true && (
           <Window 
             windowName='Résumé'
-            contentHeight="645px"
-            contentWidth="456px"
+            contentHeight="700px"
+            contentWidth="490px"
             content = {
-              <img className="resumeImg" src={resume} alt="Resume" />
+                <img
+                    src={resume}
+                    alt="Resume"
+                />
             }
             contentZ = {100}
             onClose={() => setResumeOn(false)}
+            className="resume_window"
+
 
           />
         )}
@@ -148,7 +151,7 @@ function App() {
             }
             contentZ = {1}
             onClose={() => setWeatherOn(false)}
-
+            className="weather-window"
           />
         )}
 
@@ -163,6 +166,7 @@ function App() {
             }
             contentZ = {2}
             onClose={() => setToeOn(false)}
+            className="tic-tac-toe-window"
           />
         )}
 
@@ -177,6 +181,7 @@ function App() {
             }
             contentZ = {3}
             onClose={() => setSnakeOn(false)}
+            className="snake-window"
           />
         )}
 
@@ -191,6 +196,7 @@ function App() {
             }
             contentZ = {4}
             onClose={() => setDonutOn(false)}
+            className="donut-window"
           />
         )}
 

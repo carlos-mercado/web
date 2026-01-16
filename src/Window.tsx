@@ -9,11 +9,11 @@ interface WindowProps {
     content: any;
     contentZ: number;
     onClose?: () => void;
+    className: string;
 }
 
-function Window({windowName, contentHeight, contentWidth, content, contentZ, onClose}: WindowProps)
+function Window({windowName, contentHeight, contentWidth, content, contentZ, onClose, className}: WindowProps)
 {
-
     function finalHeight() 
     {
         // If contentHeight already includes a unit, return as-is
@@ -94,13 +94,21 @@ function Window({windowName, contentHeight, contentWidth, content, contentZ, onC
 
     return (
         <>
-            <Draggable>
-                <div style={win}>
+            <Draggable
+            >
+                <div style={win} className={className}>
                     <div className="windowControls" style={windowControlsStyles}>
-                        <p style={tabTextStyles}> {windowName}</p> 
-                        <button 
+                        <p style={tabTextStyles}>{windowName}</p> 
+                        <button
                             style={buttonStyles}
-                            onClick={onClose}
+                            onClick={e => {
+                                e.stopPropagation();
+                                if (onClose) onClose();
+                            }}
+                            onTouchEnd={e => {
+                                e.stopPropagation();
+                                if (onClose) onClose();
+                            }}
                         >
                             <img src={closeIcon}></img>
                         </button>
