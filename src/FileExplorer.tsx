@@ -13,9 +13,12 @@ import folder from './assets/folder.png'
 
 const handleCardClick = (returnedInfo: [string, string]) => 
 {
+    const isMobile = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
     console.log(returnedInfo[0] + ' icon was clicked ' + returnedInfo[1] + ' times.');
 
-    if(returnedInfo[1] == '2') //DOUBLE CLICK
+    const clicks = String(returnedInfo[1]);
+
+    if((isMobile && clicks === '1') || clicks === '2')
     {
         const cardID = returnedInfo[0];
 
@@ -48,7 +51,7 @@ function FileExplorer({closeFunc} : Props){
           <Window
             windowName='Projects'
             contentHeight='50vh'
-            contentWidth='30vw'
+            contentWidth='20vw'
             content =
             {
                 <> 
@@ -80,6 +83,7 @@ function FileExplorer({closeFunc} : Props){
                 }
             contentZ = {5}
             onClose={closeFunc}
+            className='file-explorer-window'
           />
         </>
     )
