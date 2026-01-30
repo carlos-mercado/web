@@ -18,9 +18,7 @@ import weather from './assets/weather.png'
 import game from './assets/game.png'
 import web from './assets/web.png'
 import paint from './assets/paint.png'
-//import snip from './assets/snip.png'
-//import toe from './assets/Toe.png'
-//import dumbell from './assets/dumbbell2.png'
+import github from './assets/github.gif'
 
 function App() {
   const [selectedCard, setSelectedCard] = useState<string | null>(null);
@@ -64,6 +62,7 @@ function App() {
         handleCardDoubleClick(returnedInfo[0]);
     }
   }
+
   const handleCardDoubleClick = (cardID: string) => {
 
     if (cardID == "METRON")
@@ -73,6 +72,10 @@ function App() {
     else if (cardID == "Snip")
     {
       window.open("https://github.com/carlos-mercado/snip_and_search")
+    }
+    else if (cardID == "Github")
+    {
+      window.open("https://github.com/carlos-mercado")
     }
 
   }
@@ -90,6 +93,12 @@ function App() {
           cardID="Projects" 
           onIconClick={handleCardClick} 
           isSelected={selectedCard === "Projects"}
+        />
+        <Card 
+          icon={github} 
+          cardID="Github" 
+          onIconClick={handleCardClick} 
+          isSelected={selectedCard === "Github"}
         />
         <Card 
           icon={web} 
