@@ -18,6 +18,7 @@ import weather from './assets/weather.png'
 import game from './assets/game.png'
 import web from './assets/web.png'
 import paint from './assets/paint.png'
+import github from './assets/github.gif'
 //import snip from './assets/snip.png'
 //import toe from './assets/Toe.png'
 //import dumbell from './assets/dumbbell2.png'
@@ -74,7 +75,18 @@ function App() {
     {
       window.open("https://github.com/carlos-mercado/snip_and_search")
     }
-
+    else if (cardID == "METRON")
+    {
+      window.open("https://metron-alpha.vercel.app/")
+    }
+    else if (cardID == "Server")
+    {
+      window.open("https://github.com/carlos-mercado/Broadcast-Server")
+    }
+    else if (cardID == "Github")
+    {
+      window.open("https://github.com/carlos-mercado")
+    }
   }
 
   return (
@@ -90,6 +102,12 @@ function App() {
           cardID="Projects" 
           onIconClick={handleCardClick} 
           isSelected={selectedCard === "Projects"}
+        />
+        <Card 
+          icon={github}
+          cardID="Github"
+          onIconClick={handleCardClick}
+          isSelected={selectedCard === "Github"}
         />
         <Card 
           icon={web} 
