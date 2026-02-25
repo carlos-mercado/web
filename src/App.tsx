@@ -12,7 +12,7 @@ import FileExplorer from "./FileExplorer.tsx"
 
 //images
 import info from './assets/info.png'
-import resume from './assets/resume_img.png'
+import resume from './assets/resume12.jpg'
 import folder from './assets/folder.png'
 import weather from './assets/weather.png'
 import game from './assets/game.png'
@@ -134,7 +134,7 @@ function App() {
         {resumeOn == true && (
           <Window 
             windowName='Résumé'
-            contentHeight="700px"
+            contentHeight="720px"
             contentWidth="490px"
             content = {
                 <img
@@ -167,8 +167,8 @@ function App() {
         {toeOn == true && (
           <Window
             windowName='Tic-Tac-Toe'
-            contentHeight="331px"
-            contentWidth="300px"
+            contentHeight="400px"
+            contentWidth="330px"
             content = 
             {
               <Toe></Toe>

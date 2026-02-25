@@ -242,16 +242,13 @@ pre {
 @media (max-width: 600px) {
   .resume_window {
     max-width: 70vw;
-    max-height: 52vh;
+    max-height: 55vh;
 
   }
 }
 
 @media (max-width: 600px) {
   .file-explorer-window {
-    width: 80vw !important;
-    max-width: 80vw;
-    min-width: 0;
-
+    width: clamp(280px, 80vw, 400px) !important;
   }
 }

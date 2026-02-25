@@ -38,6 +38,11 @@ const handleCardClick = (returnedInfo: [string, string]) =>
         {
             window.open("https://github.com/carlos-mercado/network-concepts-notes/tree/main/projects/39_multiuser_chat")
         }
+        else if (cardID == "Netshare")
+
+        {
+            window.open("https://github.com/carlos-mercado/netshare")
+        }
     }
 }
 
@@ -51,7 +56,7 @@ function FileExplorer({closeFunc} : Props){
           <Window
             windowName='Projects'
             contentHeight='50vh'
-            contentWidth='20vw'
+            contentWidth='clamp(300px, 30vw, 450px)'
             content =
             {
                 <> 
@@ -76,6 +81,12 @@ function FileExplorer({closeFunc} : Props){
                     <Card 
                         icon={folder} 
                         cardID="Multiuser Chat" 
+                        onIconClick={handleCardClick}
+                        isSelected={!true}
+                    />
+                    <Card 
+                        icon={folder} 
+                        cardID="Netshare" 
                         onIconClick={handleCardClick}
                         isSelected={!true}
                     />
