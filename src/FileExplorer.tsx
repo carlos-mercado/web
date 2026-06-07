@@ -39,9 +39,12 @@ const handleCardClick = (returnedInfo: [string, string]) =>
             window.open("https://github.com/carlos-mercado/network-concepts-notes/tree/main/projects/39_multiuser_chat")
         }
         else if (cardID == "Netshare")
-
         {
             window.open("https://github.com/carlos-mercado/netshare")
+        }
+        else if (cardID == "bragi_rs")
+        {
+            window.open("https://github.com/carlos-mercado/bragi_rs")
         }
     }
 }
@@ -87,6 +90,12 @@ function FileExplorer({closeFunc} : Props){
                     <Card 
                         icon={folder} 
                         cardID="Netshare" 
+                        onIconClick={handleCardClick}
+                        isSelected={!true}
+                    />
+                    <Card 
+                        icon={folder} 
+                        cardID="bragi_rs" 
                         onIconClick={handleCardClick}
                         isSelected={!true}
                     />
