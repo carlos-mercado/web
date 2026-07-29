@@ -213,8 +213,6 @@ function App() {
             <FileExplorer closeFunc={() => setFolderOn(false)}>
             </FileExplorer>
         )}
-
-
       </div>
   );
 }

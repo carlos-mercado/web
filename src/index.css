@@ -22,7 +22,6 @@ body {
 .screen{
   height: 100%;
   background-color: #008080;
-  background-image: url('./assets/greenhills.png');
   background-size: cover;
   overflow: hidden;
   
