@@ -4,9 +4,7 @@ import {useState} from 'react';
 import Card from './Card.tsx'
 import Weather from './Weather.tsx';
 import Window from './Window.tsx';
-import Toe from './Toe.tsx';
 import Taskbar from './Taskbar.tsx';
-import Snake from './Snake.tsx';
 import Donut from "./Donut.tsx";
 import FileExplorer from "./FileExplorer.tsx"
 
@@ -15,7 +13,6 @@ import info from './assets/info.png'
 import resume from './assets/resume12.jpg'
 import folder from './assets/folder.png'
 import weather from './assets/weather.png'
-import game from './assets/game.png'
 import web from './assets/web.png'
 import paint from './assets/paint.png'
 import github from './assets/github.gif'
@@ -24,8 +21,6 @@ function App() {
   const [selectedCard, setSelectedCard] = useState<string | null>(null);
   const [resumeOn, setResumeOn] = useState(false);
   const [weatherOn, setWeatherOn] = useState(false);
-  const [toeOn, setToeOn] = useState(false);
-  const [snakeOn, setSnakeOn] = useState(false);
   const [donutOn, setDonutOn] = useState(false);
   const [folderOn, setFolderOn] = useState(false);
 
@@ -50,10 +45,6 @@ function App() {
         setResumeOn(true);
       else if(returnedInfo[0] == "Weather")
         setWeatherOn(true);
-      else if(returnedInfo[0] == "Tic-Tac-Toe")
-        setToeOn(true);
-      else if(returnedInfo[0] == "Snake")
-        setSnakeOn(true);
       else if(returnedInfo[0] == "Donut")
         setDonutOn(true);
       else if(returnedInfo[0] == "Projects")
@@ -113,15 +104,6 @@ function App() {
           isSelected={selectedCard === "Weather"}
         />
         <Card 
-          icon={game} 
-          cardID="Tic-Tac-Toe" 
-          onIconClick={handleCardClick} isSelected={selectedCard === "Tic-Tac-Toe"} /> <Card 
-          icon={game} 
-          cardID="Snake" 
-          onIconClick={handleCardClick} 
-          isSelected={selectedCard === "Snake"}
-        />
-        <Card 
           icon={paint} 
           cardID="Donut" 
           onIconClick={handleCardClick} 
@@ -164,35 +146,6 @@ function App() {
           />
         )}
 
-        {toeOn == true && (
-          <Window
-            windowName='Tic-Tac-Toe'
-            contentHeight="400px"
-            contentWidth="330px"
-            content = 
-            {
-              <Toe></Toe>
-            }
-            contentZ = {2}
-            onClose={() => setToeOn(false)}
-            className="tic-tac-toe-window"
-          />
-        )}
-
-        {snakeOn == true && (
-          <Window
-            windowName='Snake'
-            contentHeight="531px"
-            contentWidth="500px" 
-            content = 
-            { 
-                <Snake></Snake>
-            }
-            contentZ = {3}
-            onClose={() => setSnakeOn(false)}
-            className="snake-window"
-          />
-        )}
 
         {donutOn == true && (
           <Window
