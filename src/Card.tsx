@@ -66,12 +66,12 @@ function Card(props:IconInfo){
             onStop={handleDragStop}
         >
             <div 
-                className="card" 
+                className="m-0 flex h-[90px] w-[90px] max-w-[250px] flex-col items-center touch-none border-2 border-dashed border-transparent p-[10px] text-center select-none hover:cursor-pointer hover:border-gray-500" 
                 onClick={handleClick}
                 style={cardClickedStyle}
             >
-                <img draggable="false" src={props.icon} alt="icon-picture" className="card-image"></img>
-                <p>{props.cardID}</p>
+                <img draggable="false" src={props.icon} alt="icon-picture" className="h-[50px] w-[50px]"></img>
+                <p className="text-[8px] text-white [text-shadow:1px_1px_1px_rgba(0,0,0,0.8)]">{props.cardID}</p>
             </div>
         </Draggable>
     )

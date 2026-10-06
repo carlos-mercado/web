@@ -9,7 +9,7 @@ function Clock(){
     
     return(
         <>
-            <p>{time.toLocaleTimeString()}</p>
+            <p className="mr-[3px] flex h-[80%] items-center rounded-[1px] border-t border-l border-r-white border-b-white border-t-[#808080] border-l-[#808080] px-[9px] text-right text-[10px] text-black">{time.toLocaleTimeString()}</p>
         </>
     )
 }

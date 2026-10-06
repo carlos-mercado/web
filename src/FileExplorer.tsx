@@ -62,7 +62,7 @@ function FileExplorer({closeFunc} : Props){
             contentWidth='clamp(300px, 30vw, 450px)'
             content =
             {
-                <> 
+                <div className="grid grid-cols-3 content-start justify-items-center gap-1 p-2">
                     <Card 
                         icon={folder}
                         cardID="Server"
@@ -99,7 +99,7 @@ function FileExplorer({closeFunc} : Props){
                         onIconClick={handleCardClick}
                         isSelected={!true}
                     />
-                </>
+                </div>
                 }
             contentZ = {5}
             onClose={closeFunc}

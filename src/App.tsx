@@ -72,7 +72,7 @@ function App() {
   }
 
   return (
-      <div className='screen'>
+      <div className='relative h-full overflow-hidden bg-[#008080] bg-cover'>
         <Card 
           icon={info} 
           cardID="Info" 
@@ -109,14 +109,14 @@ function App() {
           onIconClick={handleCardClick} 
           isSelected={selectedCard === "Donut"}
         />
-        <div className='taskbar'>
+        <div className='absolute bottom-0 flex h-[5%] w-full items-center justify-end border-t border-white bg-[#c0c0c0] text-xs text-white'>
           <Taskbar />
         </div>
 
         {resumeOn == true && (
           <Window 
             windowName='Résumé'
-            contentHeight="720px"
+            contentHeight="680px"
             contentWidth="490px"
             content = {
                 <img

@@ -24,71 +24,12 @@ function Window({windowName, contentHeight, contentWidth, content, contentZ, onC
         return `${contentHeight}px`;
     }
 
-    const mainStyles: React.CSSProperties = {
-        width: "100%",
-        height: "100%",
-        display: "block", 
-        position: 'absolute',
-        backgroundColor: "#c6c6c6", // classic gray
-        overflow: "hidden",
-        marginTop: "31px"
-
-    }
-
-
-    const buttonStyles: React.CSSProperties = {
-        height: "22px",
-        width: "22px",
-        backgroundColor: "#c6c6c6", // classic gray
-        border: "2px solid #fff",
-        borderTopColor: "#fff",
-        borderLeftColor: "#fff",
-        borderBottomColor: "#3b3b3bff",
-        borderRightColor: "#3b3b3bff",
-        boxShadow: "1px 1px 0 #3b3b3bff, inset 1px 1px 0 #fff",
-        color: "black",
-        fontWeight: "bold",
-        fontFamily: "Tahoma, Geneva, sans-serif",
-        fontSize: "14px",
-        cursor: "pointer",
-        marginRight: "10px",
-        outline: "none",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        padding: "0",
-    }
-
-    const windowControlsStyles: React.CSSProperties = {
-        width: "100%",
-        backgroundColor: "#000080",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-        position: "absolute",
-        top: 0,
-        left: 0,
-        zIndex: 2,
-    };
-
-    const tabTextStyles: React.CSSProperties = {
-        textAlign: "left",
-        color: "white",
-        paddingLeft:"5px",
-        fontSize: "8px",
-    }
-
-
     const win: React.CSSProperties = {
         height: finalHeight(),
         width: contentWidth,
         zIndex: contentZ,
         position: 'absolute',
         overflow: 'hidden',
-        borderLeft: "3px solid #c6c6c6",
-        borderRight: "3px solid #ababab",
-        borderBottom: "3px solid #c6c6c6",
-        borderTop: "3px solid #ababab",
     }
 
 
@@ -96,11 +37,11 @@ function Window({windowName, contentHeight, contentWidth, content, contentZ, onC
         <>
             <Draggable
             >
-                <div style={win} className={className}>
-                    <div className="windowControls" style={windowControlsStyles}>
-                        <p style={tabTextStyles}>{windowName}</p> 
+                <div style={win} className={`window-frame ${className}`}>
+                    <div className="absolute top-0 left-0 z-[2] flex h-[30px] w-full items-center justify-between bg-[#000080]">
+                        <p className="pl-[5px] text-left text-[8px] text-white">{windowName}</p> 
                         <button
-                            style={buttonStyles}
+                            className="my-[2px] mr-[10px] flex h-[22px] w-[22px] items-center justify-center border-2 border-t-white border-l-white border-b-[#3b3b3b] border-r-[#3b3b3b] bg-[#c6c6c6] p-0 text-[14px] font-bold text-black shadow-[1px_1px_0_#3b3b3b,inset_1px_1px_0_#fff] [font-family:Tahoma,Geneva,sans-serif]"
                             onClick={e => {
                                 e.stopPropagation();
                                 if (onClose) onClose();
@@ -110,10 +51,10 @@ function Window({windowName, contentHeight, contentWidth, content, contentZ, onC
                                 if (onClose) onClose();
                             }}
                         >
-                            <img src={closeIcon}></img>
+                            <img src={closeIcon} alt="Close" />
                         </button>
                     </div>
-                    <div className="windowContent" style={mainStyles}>
+                    <div className="windowContent window-content w-full">
                         {content}
                     </div>
                 </div> 

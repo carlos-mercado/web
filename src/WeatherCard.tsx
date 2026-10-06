@@ -20,14 +20,14 @@ function WeatherCard(props: WeatherInfo)  {
     //<img id='image' src={sunny}></img>
 
     return (
-        <div id='weather-card'>
-            <div className="left">
+        <div className="weather-card">
+            <div className="weather-left">
                 <h2 id='day'>{dayNames[dayIndex]}</h2>
                 <h1 id='temperature'>{props.temp}°</h1>
                 <p>Visalia, CA</p>
             </div>
-            <div className='right'>
-                <img src={sunny}></img>
+            <div className='weather-right'>
+                <img src={sunny} alt="Sunny" />
             </div>
         </div>
     );
